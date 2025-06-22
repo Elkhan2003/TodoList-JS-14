@@ -8,12 +8,12 @@ let doneTasks = [{ id: 3, category: "social", task: "Compliment someone" }];
 
 let nextId = 4;
 
-function renderTasks() {
+const renderTasks = () => {
 	renderTodoTasks();
 	renderDoneTasks();
-}
+};
 
-function renderTodoTasks() {
+const renderTodoTasks = () => {
 	const todoSection = document.getElementById("todo-section");
 
 	if (todoTasks.length === 0) {
@@ -37,9 +37,9 @@ function renderTodoTasks() {
             `
 		)
 		.join("");
-}
+};
 
-function renderDoneTasks() {
+const renderDoneTasks = () => {
 	const doneSection = document.getElementById("done-section");
 
 	if (doneTasks.length === 0) {
@@ -62,9 +62,9 @@ function renderDoneTasks() {
             `
 		)
 		.join("");
-}
+};
 
-function addTask() {
+const addTask = () => {
 	const categoryInput = document.getElementById("category-input");
 	const taskInput = document.getElementById("task-input");
 
@@ -86,43 +86,39 @@ function addTask() {
 	taskInput.value = "";
 
 	renderTasks();
-}
+};
 
-function markDone(taskId) {
+const markDone = (taskId) => {
 	const taskIndex = todoTasks.findIndex((task) => task.id === taskId);
 	if (taskIndex !== -1) {
 		const task = todoTasks.splice(taskIndex, 1)[0];
 		doneTasks.push(task);
 		renderTasks();
 	}
-}
+};
 
-function cancelTask(taskId) {
+const cancelTask = (taskId) => {
 	todoTasks = todoTasks.filter((task) => task.id !== taskId);
 	renderTasks();
-}
+};
 
-function deleteTask(taskId) {
+const deleteTask = (taskId) => {
 	doneTasks = doneTasks.filter((task) => task.id !== taskId);
 	renderTasks();
-}
+};
 
 // Handle Enter key in input fields
-document
-	.getElementById("category-input")
-	.addEventListener("keypress", function (e) {
-		if (e.key === "Enter") {
-			document.getElementById("task-input").focus();
-		}
-	});
+document.getElementById("category-input").addEventListener("keypress", (e) => {
+	if (e.key === "Enter") {
+		document.getElementById("task-input").focus();
+	}
+});
 
-document
-	.getElementById("task-input")
-	.addEventListener("keypress", function (e) {
-		if (e.key === "Enter") {
-			addTask();
-		}
-	});
+document.getElementById("task-input").addEventListener("keypress", (e) => {
+	if (e.key === "Enter") {
+		addTask();
+	}
+});
 
 // Initial render
 renderTasks();
