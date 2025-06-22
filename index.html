@@ -7,35 +7,41 @@
 		<title>Todo List</title>
 	</head>
 	<body>
-		<div class="container">
-			<h1>Todo</h1>
+		<div class="layout">
+			<div class="container">
+				<h1>Todo</h1>
 
-			<div class="add-task-form">
-				<div class="form-row">
-					<label>Category:</label>
-					<input
-						type="text"
-						id="category-input"
-						placeholder="e.g., work, personal, relaxation" />
+				<div class="add-task-form">
+					<div class="form-row">
+						<label>Category:</label>
+						<input
+							type="text"
+							id="category-input"
+							placeholder="e.g., work, personal, relaxation" />
+					</div>
+					<div class="form-row">
+						<label>Task:</label>
+						<input
+							type="text"
+							id="task-input"
+							placeholder="What do you need to do?" />
+					</div>
+					<button class="add-button" onclick="addTask()">Add Task</button>
 				</div>
-				<div class="form-row">
-					<label>Task:</label>
-					<input
-						type="text"
-						id="task-input"
-						placeholder="What do you need to do?" />
+
+				<div id="todo-section">
+					<!-- Todo tasks will be inserted here -->
 				</div>
-				<button class="add-button" onclick="addTask()">Add Task</button>
+
+				<h2>Done</h2>
+				<div id="done-section">
+					<!-- Done tasks will be inserted here -->
+				</div>
 			</div>
 
-			<div id="todo-section">
-				<!-- Todo tasks will be inserted here -->
-			</div>
-
-			<h2>Done</h2>
-			<div id="done-section">
-				<!-- Done tasks will be inserted here -->
-			</div>
+			<footer>
+				<a href="https://elcho.dev" target="_blank">Built with ♡ by ElchoDev</a>
+			</footer>
 		</div>
 
 		<script src="./elcho/script.js"></script>
