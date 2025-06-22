@@ -6,11 +6,14 @@ let todoTasks = [
 
 let doneTasks = [{ id: 3, category: "social", task: "Compliment someone" }];
 
-let nextId = 4;
+const allTasks = [...todoTasks, ...doneTasks];
+const allIds = allTasks.map((item) => item.id);
+let nextId = Math.max(...allIds) + 1;
 
 const renderTasks = () => {
 	renderTodoTasks();
 	renderDoneTasks();
+	console.log("🚀 ~ todoTasks:", todoTasks);
 };
 
 const renderTodoTasks = () => {
@@ -77,7 +80,7 @@ const addTask = () => {
 	}
 
 	todoTasks.push({
-		id: nextId++,
+		id: nextId,
 		category: category,
 		task: task,
 	});
